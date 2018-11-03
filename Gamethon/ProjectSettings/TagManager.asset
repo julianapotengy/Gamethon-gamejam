@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background2
+    uniqueID: 1568927939
+    locked: 0
+  - name: Background
+    uniqueID: 1264372779
+    locked: 0
+  - name: CalcadaCima
+    uniqueID: 616947343
+    locked: 0
+  - name: Rua
+    uniqueID: 3463488297
+    locked: 0
+  - name: Personagens
+    uniqueID: 3052512753
+    locked: 0
+  - name: CalcadaBaixo
+    uniqueID: 750667181
+    locked: 0

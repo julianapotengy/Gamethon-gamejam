@@ -10,7 +10,7 @@ public class LifeCircle : MonoBehaviour
     
 	void Start ()
     {
-		
+        playerLife = 3;
 	}
 	
 	void Update ()
@@ -30,6 +30,12 @@ public class LifeCircle : MonoBehaviour
         if (playerLife == 1)
         {
             circles[0].gameObject.SetActive(true);
+            circles[1].gameObject.SetActive(false);
+            circles[2].gameObject.SetActive(false);
+        }
+        if (playerLife == 0)
+        {
+            circles[0].gameObject.SetActive(false);
             circles[1].gameObject.SetActive(false);
             circles[2].gameObject.SetActive(false);
         }

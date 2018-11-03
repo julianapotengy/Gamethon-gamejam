@@ -123,19 +123,30 @@ public class EnemyBehaviour : MonoBehaviour {
 		transform.localEulerAngles = lado ? new Vector3 (0, 180, 0) : new Vector3 (0, 0, 0);
 	}
 
-	void BoarGround()
-	{
-		if (teVi) {
-			if (xPos > xMax_fly && lado) {
-				lado = false;
-			} else if (xPos < xMin_fly && !lado) {
-				lado = true;
-			}
+    void BoarGround()
+    {
+        if (teVi)
+        {
+            if (xPos > player.position.x + 0.1f)
+            {
+                transform.localEulerAngles = new Vector3(0, 0, 0);
+                xPos -= velocity * Time.deltaTime;
+            }
+            else if (xPos < player.position.x - 0.1f)
+            {
+                transform.localEulerAngles = new Vector3(0, 180, 0);
+                xPos += velocity * Time.deltaTime;
+            }
+        }
 
-			xPos = lado ? xPos += velocity * Time.deltaTime : xPos -= velocity * Time.deltaTime;
-			transform.localEulerAngles = lado ? new Vector3 (0, 180, 0) : new Vector3 (0, 0, 0);
-		}
+        GetComponent<Animator>().SetBool("teVi", teVi);
+    }
 
-		GetComponent<Animator> ().SetBool ("teVi", teVi);
-	}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (thisEnemyMode == IAMode.BoarGround && col.gameObject.name == "Player")
+        {
+            teVi = true;
+        }
+    }
 }
